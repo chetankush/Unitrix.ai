@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unitrix AI - Intelligent Automation Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #64748b;
+            --accent: #3b82f6;
+            --background: #ffffff;
+            --text: #1e293b;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            --container: 1200px;
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.125rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-xl) 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--spacing-xl) 0;
+            background: #f8fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .service-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* Process Section */
+        .process {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: var(--spacing-xl) 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .cta p {
+            color: #94a3b8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--spacing-xl) 0;
+            background: #f8fafc;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-section h4 {
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+        }
+
+        .footer-section a {
+            color: var(--secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: var(--spacing-xl) 0 var(--spacing-lg);
+            }
+
+            .service-card, .step {
+                padding: var(--spacing-md);
+            }
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Unitrix AI</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-up">
+                <h1>Automate & Scale Your Business with AI</h1>
+                <p>We help startups leverage AI automation to generate leads and streamline processes - without writing a single line of code.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="fade-up">Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <h3>No-Code AI Chatbots</h3>
+                    <p>Intelligent conversation automation for lead generation and customer support, built without coding.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <h3>Voice Automation</h3>
+                    <p>Smart voicebots that handle customer inquiries and qualify leads around the clock.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <h3>Custom AI Solutions</h3>
+                    <p>Tailored AI implementations designed to meet your specific business requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="fade-up">How We Work</h2>
+            <div class="process-steps">
+                <div class="step fade-up">
+                    <div class="step-number">01</div>
+                    <h3>Analysis</h3>
+                    <p>We analyze your business processes and identify automation opportunities.</p>
+                </div>
+                <div class="step fade-up">
+                    <div class="step-number">02</div>
+                    <h3>Strategy</h3>
+                    <p>Develop a customized AI strategy aligned with your business goals.</p>
+                </div>
+                <div class="step fade-up">
+                    <div class="step-number">03</div>
+                    <h3>Implementation</h3>
+                    <p>Deploy and integrate AI solutions seamlessly into your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="fade-up">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how we can help your startup grow with AI automation.</p>
+                <a href="#contact" class="btn btn-light">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section fade-up">
+                    <h4>Contact</h4>
+                    <p>contact@unitrixai.com</p>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="footer-section fade-up">
+                    <h4>Company</h4>
+                    <a href="#services">Services</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section fade-up">
+                    <h4>Connect</h4>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Intersection Observer for fade-up animations
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
